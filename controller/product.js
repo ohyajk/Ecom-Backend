@@ -16,12 +16,12 @@ exports.addProduct = (req, res) => {
 
 exports.delProduct = ('/:id', (req, res) => {
   let delID = req.params.id
-  Product.findOneAndDelete({ _id: delID }, (err, result) => {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log(result);
-    }
+  Product.findOneAndDelete({ _id: delID })
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((err) => {
+    console.log(err);
   });
   res.send("DELETE Request Called")
 })
