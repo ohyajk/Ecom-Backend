@@ -16,6 +16,6 @@ exports.addProduct = (req, res) => {
 
 exports.delProduct = ('/:id', (req, res) => {
   let delID = req.params.id
-  Product.findOneAndDelete(({_id: delID}),function (err, Product) {console.log(err,Product)})
+  Product.findOneAndDelete(({_id: delID}))
   res.send("DELETE Request Called")
 })
