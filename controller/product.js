@@ -5,6 +5,12 @@ exports.getProducts = async(req, res) => {
     res.send(allProducts)
 }
 
+exports.getOne =( '/:id', async(req, res) => {
+  let oneId = req.params.id
+  const oneProduct = await Product.findOne({ _id: oneId })
+  res.send(oneProduct)
+})
+
 exports.addProduct = (req, res) => {
     const product = new Product(req.body)
     product.save().then(() => {
